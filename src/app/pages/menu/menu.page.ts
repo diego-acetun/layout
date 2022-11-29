@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  selector: 'app-menu',
+  templateUrl: './menu.page.html',
+  styleUrls: ['./menu.page.scss'],
 })
-export class AppComponent {
+export class MenuPage implements OnInit {
   public appPages = [
     { title: 'Semáforo coorporativo', url: '/users', icon: 'copy-outline' },
     {
@@ -21,4 +21,6 @@ export class AppComponent {
   };
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}
+
+  ngOnInit() {}
 }

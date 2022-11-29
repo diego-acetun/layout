@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-main-login',
+  templateUrl: './main-login.component.html',
+  styleUrls: ['./main-login.component.scss'],
 })
-export class LoginPage implements OnInit {
+export class MainLoginComponent implements OnInit {
+  constructor() {}
   inputType: string = 'password';
   icon: string = 'eye-off-outline';
-  constructor() {
-  }
-
   ngOnInit() {}
   changeInputType() {
     this.inputType = this.inputType === 'password' ? 'text' : 'password';
     this.icon =
-      this.inputType === 'password' ? 'eye-outline' : 'eye-off-outline';
+      this.inputType === 'password' ? 'eye-off-outline' : 'eye-outline';
   }
 
   login() {
