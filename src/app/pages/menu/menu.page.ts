@@ -8,9 +8,9 @@ import { MenuController } from '@ionic/angular';
 })
 export class MenuPage implements OnInit {
   public menuItems = [
-    { title: 'home', path: '/', icon: 'accessibility-outline' },
-    { title: 'about', path: '/about', icon: 'accessibility-outline' },
-    { title: 'products', path: '/products', icon: 'accessibility-outline' },
+    { title: 'Semáforo coorporativo', path: '/', icon: 'accessibility-outline' },
+    { title: 'Reportes O&M', path: '/about', icon: 'accessibility-outline' },
+    // { title: 'products', path: '/products', icon: 'accessibility-outline' },
   ];
   constructor(private menuControler: MenuController) {}
 

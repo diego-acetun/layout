@@ -1,9 +1,13 @@
 .active-item {
-  color: var(--ion-color-primary);
+  color: var(--ion-color-danger);
   font-weight: 500;
 }
 ion-icon {
-  color: var(--ion-color-primary);
+  color: var(--ion-color-danger);
+}
+
+ion-menu {
+  --width: 25%;
 }
 @media (min-width: 768px) {
   ion-router-outlet {
