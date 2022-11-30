@@ -25,6 +25,41 @@ const routes: Routes = [
             (m) => m.ProductsPageModule
           ),
       },
+      {
+        path: 'reports/control-desarrollo',
+        loadChildren: () =>
+          import('../control-desarrollo/control-desarrollo.module').then(
+            (m) => m.ControlDesarrolloPageModule
+          ),
+      },
+      {
+        path: 'reports/control-vistas',
+        loadChildren: () =>
+          import('../control-vistas/control-vistas.module').then(
+            (m) => m.ControlVistasPageModule
+          ),
+      },
+      {
+        path: 'reports/estadisticas-tablas',
+        loadChildren: () =>
+          import('../estadisticas-tablas/estadisticas-tablas.module').then(
+            (m) => m.EstadisticasTablasPageModule
+          ),
+      },
+      {
+        path: 'reports/traduccion-archivos',
+        loadChildren: () =>
+          import('../traduccion-archivos/traduccion-archivos.module').then(
+            (m) => m.TraduccionArchivosPageModule
+          ),
+      },
+      {
+        path: 'reports/control-desarrollo',
+        loadChildren: () =>
+          import('../control-desarrollo/control-desarrollo.module').then(
+            (m) => m.ControlDesarrolloPageModule
+          ),
+      },
     ],
   },
 ];

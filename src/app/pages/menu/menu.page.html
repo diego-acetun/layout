@@ -12,24 +12,50 @@
     <ion-menu-toggle auto-hide="false" *ngFor="let item of menuItems">
       <ion-item routerDirection="root" [routerLink]="[item.path]" lines="none" detail="false"
         routerLinkActive="active-item" [routerLinkActiveOptions]="{exact:true}" class="mt-10">
-        <ion-icon slot="start" [ios]="item.icon" [md]="item.icon"></ion-icon>
+        <ion-icon slot="start" [ios]="item.icon" [md]="item.icon" routerLinkActive="active-item"
+          [routerLinkActiveOptions]="{exact:true}"></ion-icon>
         <ion-label>{{ item.title }}</ion-label>
       </ion-item>
     </ion-menu-toggle>
+    <div class="flex justify-center mt-10">
+      <hr class="text-center w-2/3" />
+    </div>
     <!-- <ion-menu-toggle> -->
     <ion-accordion-group>
-      <ion-accordion value="first" class="target:bg-red-500">
+      <ion-accordion value="first">
         <ion-item slot="header" color="light" routerDirection="root" lines="none" detail="false"
           routerLinkActive="active-item" class="mt-10">
-          <ion-icon name="speedometer-outline" slot="start"></ion-icon>
+          <ion-icon name="speedometer-outline" slot="start" routerLinkActive="active-item"
+            [routerLinkActiveOptions]="{exact:true}"></ion-icon>
           <ion-label>Reportes administrativos</ion-label>
         </ion-item>
-        <div class="ion-padding" slot="content">
-          First Content
+        <div class="ion-padding" slot="content" *ngFor="let report of administrativeReports">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" [routerLink]="report.path" lines="none" detail="false"
+              routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}" class="">
+              <ion-label>{{report.title}}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </div>
       </ion-accordion>
-
+      <ion-accordion value="second">
+        <ion-item slot="header" color="light" routerDirection="root" lines="none" detail="false"
+          routerLinkActive="active-item" class="mt-10">
+          <ion-icon name="settings-outline" slot="start" routerLinkActive="active-item"
+            [routerLinkActiveOptions]="{exact:true}"></ion-icon>
+          <ion-label>Gestion administrativa</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content" *ngFor="let management of administrativeManagements">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" [routerLink]="management.path" lines="none" detail="false"
+              routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}" class="">
+              <ion-label>{{management.title}}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </div>
+      </ion-accordion>
     </ion-accordion-group>
+
     <!-- </ion-menu-toggle> -->
   </ion-content>
 </ion-menu>

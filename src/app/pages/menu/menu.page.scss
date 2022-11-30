@@ -1,9 +1,17 @@
 .active-item {
-  color: var(--ion-color-danger);
+  color: red;
   font-weight: 500;
+  // --background: rgb(254 226 226);
+}
+
+.selected {
+  color: red;
+  font-weight: 500;
+  --background: rgb(254 226 226);
+  border-radius: 25px;
 }
 ion-icon {
-  color: var(--ion-color-danger);
+  color: black;
 }
 
 ion-menu {
