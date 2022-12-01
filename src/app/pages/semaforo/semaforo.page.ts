@@ -12,6 +12,7 @@ export class SemaforoPage implements OnInit {
   ngOnInit() {}
 
   openMenu() {
+    console.log("clcked");
     this.toggleService.setMenu();
   }
 }

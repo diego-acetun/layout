@@ -1,15 +1,21 @@
 ion-split-pane {
   // box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
+  --side-min-width: 340px;
 
   &.menu-only-icon {
     --side-max-width: 74px;
     --side-min-width: 74px;
-
+    // ion-accordion-group {
+    //   ion-accordion{
+    //     ion-item
+    //   }
+    // }
     ion-menu {
       --min-width: 74px !important;
       --width: 74px !important;
       max-width: 74px;
-      border-right: 1px solid var(--ion-color-medium);
+      // border-right-color: gray;
+      // border-right-width: 10px;
 
       .item {
         .icon {
@@ -22,38 +28,45 @@ ion-split-pane {
     }
   }
   ion-menu {
+    border-right-width: 2px;
+
     --min-width: 72px;
-    --widht: 500px;
+    --widht: 150px;
     max-width: 250px;
   }
 
   .item {
     &.selected {
-      background: rgba(var(--ion-color-primary-rgb), 0.14);
-      color: var(--ion-color-primary);
+      // background: rgba(var(--ion-color-danger-rgb), 0.14);
+      color: var(--ion-color-danger);
     }
   }
 }
 
-@media (max-width: 767px) {
-  ion-split-pane {
-    --side-max-width: 74px;
-    --side-min-width: 74px;
-
-    ion-menu {
-      --min-width: 74px !important;
-      --width: 74px !important;
-      max-width: 74px;
-      border-right: 1px solid var(--ion-color-medium);
-
-      .item {
-        .icon {
-          width: 100%;
-        }
-        .label {
-          display: none;
-        }
-      }
-    }
-  }
+.active-item {
+  color: red;
+  font-weight: 500;
+  --background: rgb(254 226 226);
 }
+// @media (max-width: 767px) {
+//   ion-split-pane {
+//     --side-max-width: 74px;
+//     --side-min-width: 74px;
+
+//     ion-menu {
+//       --min-width: 74px !important;
+//       --width: 74px !important;
+//       max-width: 74px;
+//       // border-right-width: 10px;
+
+//       .item {
+//         .icon {
+//           width: 100%;
+//         }
+//         .label {
+//           display: none;
+//         }
+//       }
+//     }
+//   }
+// }

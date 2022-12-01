@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SemaforoPageRoutingModule } from './semaforo-routing.module';
 
 import { SemaforoPage } from './semaforo.page';
-
+import { MenuButtonModule } from 'src/app/components/menu-button/menu-button.module';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SemaforoPageRoutingModule
+    SemaforoPageRoutingModule,
+    MenuButtonModule,
   ],
-  declarations: [SemaforoPage]
+  declarations: [SemaforoPage],
 })
 export class SemaforoPageModule {}

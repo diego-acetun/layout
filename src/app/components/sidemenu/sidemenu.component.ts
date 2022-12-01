@@ -11,11 +11,46 @@ export class SidemenuComponent implements OnInit {
   @Input() isAuth: boolean | undefined;
   collapse: boolean = false;
   currentPage: any;
+  accordionValue: string = '';
   public appPages = [
-    { title: 'Semáforo cooporativo', url: '/semaforo', icon: 'people' },
+    { title: 'Semáforo cooporativo', url: '/semaforo', icon: 'briefcase' },
     { title: 'Reportes O&M', url: '/reportes', icon: 'paper-plane' },
     // { title: 'Empresas', url: '/business', icon: 'business' },
   ];
+
+  administrativeReports = [
+    {
+      title: 'Control de desarrollo',
+      url: '/control-desarrollo',
+    },
+    {
+      title: 'Control de vistas',
+      url: '/control-vistas',
+    },
+    {
+      title: 'Estadisticas de tablas',
+      url: '/estadisticas',
+    },
+    {
+      title: 'Traducción de archivos',
+      url: '/archivos',
+    },
+  ];
+  administrativeManagement = [
+    {
+      title: 'Usuarios',
+      url: '/usuarios',
+    },
+    {
+      title: 'Roles',
+      url: '/roles',
+    },
+    {
+      title: 'Categorias',
+      url: '/categorias',
+    },
+  ];
+
   constructor(
     public router: Router,
     public toggleMenuService: ToggleMenuService
@@ -26,5 +61,11 @@ export class SidemenuComponent implements OnInit {
   selectPage(p: any) {
     this.currentPage = p;
     this.router.navigate([p.url]);
+  }
+
+  showAccordion(accordionValue: string) {
+    this.toggleMenuService.setMenu();
+    this.accordionValue = accordionValue;
+    console.log('click');
   }
 }

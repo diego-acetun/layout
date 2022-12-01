@@ -25,6 +25,34 @@ const routes: Routes = [
     path: 'reportes',
     loadChildren: () => import('./pages/reportes/reportes.module').then( m => m.ReportesPageModule)
   },
+  {
+    path: 'control-desarrollo',
+    loadChildren: () => import('./pages/control-desarrollo/control-desarrollo.module').then( m => m.ControlDesarrolloPageModule)
+  },
+  {
+    path: 'control-vistas',
+    loadChildren: () => import('./pages/control-vistas/control-vistas.module').then( m => m.ControlVistasPageModule)
+  },
+  {
+    path: 'estadisticas',
+    loadChildren: () => import('./pages/estadisticas/estadisticas.module').then( m => m.EstadisticasPageModule)
+  },
+  {
+    path: 'archivos',
+    loadChildren: () => import('./pages/archivos/archivos.module').then( m => m.ArchivosPageModule)
+  },
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./pages/usuarios/usuarios.module').then( m => m.UsuariosPageModule)
+  },
+  {
+    path: 'roles',
+    loadChildren: () => import('./pages/roles/roles.module').then( m => m.RolesPageModule)
+  },
+  {
+    path: 'categorias',
+    loadChildren: () => import('./pages/categorias/categorias.module').then( m => m.CategoriasPageModule)
+  },
 ];
 
 @NgModule({

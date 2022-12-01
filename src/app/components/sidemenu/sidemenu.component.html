@@ -1,19 +1,71 @@
-<ion-split-pane contentId="main-content" [class.menu-only-icon]="toggleMenuService.menuValue.collapse" class="">
+<ion-split-pane when="xs" contentId="main-content" [class.menu-only-icon]="toggleMenuService.menuValue.collapse"
+  class="">
   <ion-menu contentId="main-content" type="overlay" [hidden]="false">
     <ion-content>
       <ion-list id="inbox-list" class="px-3">
         <ion-title>
-          <img src="assets/images/claro.png" alt="not available" class="w-1/3">
+          <img src="assets/images/claro.png" alt="not available" class="w-1/3 mb-16">
         </ion-title>
         <!-- <ion-note>app</ion-note> -->
 
-        <div auto-hide="false" *ngFor="let p of appPages; let i = index" class="mt-10">
+        <div auto-hide="false" *ngFor="let p of appPages; let i = index" class="">
           <div class="rounded-full items-center flex p-4 hover:bg-gray-300 hover:cursor-pointer item mb-2"
             (click)="selectPage(p)" [class.selected]="p.url === router.url">
-            <ion-icon class="icon" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+            <ion-icon class="icon text-2xl" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'">
+            </ion-icon>
             <p class="ml-2 label">{{ p.title }}</p>
           </div>
         </div>
+
+        <div class="flex justify-center mt-10">
+          <hr class="w-4/5 border border-gray-300">
+        </div>
+
+        <div (click)="showAccordion('first')" auto-hide="false" class="mt-10"
+          [class.hidden]="!toggleMenuService.menuValue.collapse">
+          <div class="rounded-full items-center flex p-4 hover:bg-gray-300 hover:cursor-pointer item mb-2">
+            <ion-icon class="icon text-xl" slot="start" name="speedometer-outline"></ion-icon>
+          </div>
+        </div>
+        <div (click)="showAccordion('second')" auto-hide="false" class=""
+          [class.hidden]="!toggleMenuService.menuValue.collapse">
+          <div class="rounded-full items-center flex p-4 hover:bg-gray-300 hover:cursor-pointer item mb-2">
+            <ion-icon class="icon text-xl" slot="start" name="settings-outline"></ion-icon>
+          </div>
+        </div>
+
+        <ion-accordion-group [value]="accordionValue" [class.hidden]="toggleMenuService.menuValue.collapse">
+          <ion-accordion ion value="first">
+            <ion-item slot="header" color="" routerDirection="root" lines="none" detail="false"
+              routerLinkActive="active-item" class="mt-10">
+              <ion-icon name="speedometer-outline" slot="start" routerLinkActive="active-item"
+                [routerLinkActiveOptions]="{exact:true}"></ion-icon>
+              <ion-label>Reportes administrativos</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content" *ngFor="let report of administrativeReports">
+              <ion-item lines="none" detail="false" routerLinkActive="active-item" [routerLink]="report.url"
+                class="rounded-full">
+                <ion-label>{{report.title}}</ion-label>
+              </ion-item>
+            </div>
+          </ion-accordion>
+
+          <ion-accordion ion value="second">
+            <ion-item slot="header" color="" routerDirection="root" lines="none" detail="false"
+              routerLinkActive="active-item" class="mt-10 bg-red-400">
+              <ion-icon name="speedometer-outline" slot="start" routerLinkActive="active-item"
+                [routerLinkActiveOptions]="{exact:true}"></ion-icon>
+              <ion-label>Gestión administrativa</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content" *ngFor="let management of administrativeManagement">
+              <ion-item lines="none" detail="false" routerLinkActive="active-item" [routerLink]="management.url"
+                class="rounded-full">
+                <ion-label>{{management.title}}</ion-label>
+              </ion-item>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+
       </ion-list>
     </ion-content>
   </ion-menu>
