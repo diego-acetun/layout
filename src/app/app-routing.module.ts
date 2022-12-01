@@ -2,32 +2,28 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () =>
-      import('./pages/menu/menu.module').then((m) => m.MenuPageModule),
-  },
   // {
   //   path: '',
-  //   redirectTo: 'login',
-  //   pathMatch: 'full'
+  //   loadChildren: () =>
+  //     import('./pages/home/home.module').then((m) => m.HomePageModule),
   // },
+  {
+    path: '',
+    redirectTo: 'semaforo',
+    pathMatch: 'full'
+  },
   {
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginPageModule),
   },
   {
-    path: 'about',
-    loadChildren: () =>
-      import('./pages/about/about.module').then((m) => m.AboutPageModule),
+    path: 'semaforo',
+    loadChildren: () => import('./pages/semaforo/semaforo.module').then( m => m.SemaforoPageModule)
   },
   {
-    path: 'products',
-    loadChildren: () =>
-      import('./pages/products/products.module').then(
-        (m) => m.ProductsPageModule
-      ),
+    path: 'reportes',
+    loadChildren: () => import('./pages/reportes/reportes.module').then( m => m.ReportesPageModule)
   },
 ];
 
