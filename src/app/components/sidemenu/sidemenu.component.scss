@@ -48,6 +48,24 @@ ion-split-pane {
   font-weight: 500;
   --background: rgb(254 226 226);
 }
+
+ion-menu {
+  --background: rgb(254 226 226);
+}
+
+// @media (max-width: 767px) {
+//   ion-split-pane {
+//     --background: black;
+//     --side-max-width: 74px;
+//     --side-min-width: 74px;
+
+//     ion-menu {
+//       --min-width: 74px !important;
+//       --width: 74px !important;
+//       max-width: 74px;
+//     }
+//   }
+// }
 // @media (max-width: 767px) {
 //   ion-split-pane {
 //     --side-max-width: 74px;

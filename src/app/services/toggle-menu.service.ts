@@ -7,7 +7,7 @@ export class ToggleMenuService {
   private menuSubject: BehaviorSubject<any>;
   public menu: Observable<any>;
   constructor() {
-    this.menuSubject = new BehaviorSubject<any>({ collapse: false });
+    this.menuSubject = new BehaviorSubject<any>({ collapse: true });
     this.menu = this.menuSubject.asObservable();
   }
 
