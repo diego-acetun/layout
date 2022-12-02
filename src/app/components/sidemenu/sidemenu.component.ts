@@ -69,4 +69,17 @@ export class SidemenuComponent implements OnInit {
     this.accordionValue = accordionValue;
     console.log('click');
   }
+
+  hoverIcon(option: string) {
+    if (option === 'Semáforo cooporativo') {
+      this.toggleMenuService.setMessageSemaforo();
+      // console.log('exe', this.toggleMenuService.messageSemaforoValue.show);
+    } else if (option === 'Reportes O&M') {
+      this.toggleMenuService.setMessageReports();
+    }
+  }
+
+  // leaveIcon(){
+
+  // }
 }

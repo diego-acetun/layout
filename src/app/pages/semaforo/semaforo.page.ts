@@ -7,12 +7,15 @@ import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
   styleUrls: ['./semaforo.page.scss'],
 })
 export class SemaforoPage implements OnInit {
-  constructor(private toggleService: ToggleMenuService) {}
+  constructor(public toggleMenuService: ToggleMenuService) {}
 
   ngOnInit() {}
 
-  openMenu() {
-    console.log("clcked");
-    this.toggleService.setMenu();
+  hover() {
+    console.log('hover');
+  }
+
+  leave() {
+    console.log('leave');
   }
 }

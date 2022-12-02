@@ -11,10 +11,12 @@
 
         <div auto-hide="false" *ngFor="let p of appPages; let i = index" class="">
           <div class="rounded-full items-center flex p-4 hover:bg-gray-300 hover:cursor-pointer item mb-2"
-            routerLinkActive="active-item" [routerLink]="p.url">
+            routerLinkActive="active-item" [routerLink]="p.url" (mouseenter)="hoverIcon(p.title) "
+            (mouseleave)="hoverIcon(p.title)">
             <ion-icon class="icon text-xl" slot="start" [name]="p.icon">
             </ion-icon>
             <p class="ml-8 label">{{ p.title }}</p>
+
           </div>
         </div>
 
@@ -70,5 +72,16 @@
       </ion-list>
     </ion-content>
   </ion-menu>
+
   <ng-content></ng-content>
 </ion-split-pane>
+<!-- [class.hidden]="!toggleMenuService.messageSemaforoValue.show" -->
+<div class="absolute top-36 left-28 bg-gray-700 text-white p-4 rounded-lg"
+  [class.hidden]="!toggleMenuService.messageSemaforoValue.show || !toggleMenuService.menuValue.collapse">
+  <p>Semáforo coorporativo</p>
+</div>
+
+<div class="absolute top-52 left-28 bg-gray-700 text-white p-4 rounded-lg"
+  [class.hidden]="!toggleMenuService.messageReportsValue.show || !toggleMenuService.menuValue.collapse">
+  <p>Reportes O&M</p>
+</div>
