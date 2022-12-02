@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CategoriasPageRoutingModule } from './categorias-routing.module';
 
 import { CategoriasPage } from './categorias.page';
+import { MenuButtonModule } from 'src/app/components/menu-button/menu-button.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoriasPageRoutingModule
+    CategoriasPageRoutingModule,
+    MenuButtonModule,
   ],
-  declarations: [CategoriasPage]
+  declarations: [CategoriasPage],
 })
 export class CategoriasPageModule {}

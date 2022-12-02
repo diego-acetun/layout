@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
   styleUrls: ['./menu-button.component.scss'],
 })
 export class MenuButtonComponent implements OnInit {
+  @Input() title: string = 'default title';
   constructor(public toggleMenuService: ToggleMenuService) {}
 
   ngOnInit() {}

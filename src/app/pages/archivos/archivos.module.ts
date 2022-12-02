@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ArchivosPageRoutingModule } from './archivos-routing.module';
 
 import { ArchivosPage } from './archivos.page';
+import { MenuButtonModule } from 'src/app/components/menu-button/menu-button.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ArchivosPageRoutingModule
+    ArchivosPageRoutingModule,
+    MenuButtonModule,
   ],
-  declarations: [ArchivosPage]
+  declarations: [ArchivosPage],
 })
 export class ArchivosPageModule {}

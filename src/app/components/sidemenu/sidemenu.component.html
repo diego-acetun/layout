@@ -1,20 +1,20 @@
 <ion-split-pane when="xs" contentId="main-content" [class.menu-only-icon]="toggleMenuService.menuValue.collapse"
   class="">
   <ion-menu contentId="main-content" type="overlay" [class.hidden]="toggleMenuService.menuValue.collapse"
-    [class.md:block]="toggleMenuService.menuValue.collapse">
-    <ion-content class="bg-red-800 side">
+    [class.md:block]="toggleMenuService.menuValue.collapse" class="">
+    <ion-content class="side">
       <ion-list id="inbox-list" class="px-3">
-        <ion-title>
-          <img src="assets/images/claro.png" alt="not available" class="w-1/3 mb-16">
+        <ion-title [class.w-20]="toggleMenuService.menuValue.collapse" class="ml-2">
+          <img src="assets/images/claro.png" alt="not available" class="mb-16 imagen mt-8 border-4"
+            [class.-translate-x-16]="toggleMenuService.menuValue.collapse">
         </ion-title>
-        <!-- <ion-note>app</ion-note> -->
 
         <div auto-hide="false" *ngFor="let p of appPages; let i = index" class="">
           <div class="rounded-full items-center flex p-4 hover:bg-gray-300 hover:cursor-pointer item mb-2"
-            (click)="selectPage(p)" [class.selected]="p.url === router.url">
-            <ion-icon class="icon text-2xl" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'">
+            routerLinkActive="active-item" [routerLink]="p.url">
+            <ion-icon class="icon text-xl" slot="start" [name]="p.icon">
             </ion-icon>
-            <p class="ml-2 label">{{ p.title }}</p>
+            <p class="ml-8 label">{{ p.title }}</p>
           </div>
         </div>
 
@@ -53,8 +53,8 @@
 
           <ion-accordion ion value="second">
             <ion-item slot="header" color="" routerDirection="root" lines="none" detail="false"
-              routerLinkActive="active-item" class="mt-10 bg-red-400">
-              <ion-icon name="speedometer-outline" slot="start" routerLinkActive="active-item"
+              routerLinkActive="active-item" class="mt-5">
+              <ion-icon name="settings-outline" slot="start" routerLinkActive="active-item"
                 [routerLinkActiveOptions]="{exact:true}"></ion-icon>
               <ion-label>Gestión administrativa</ion-label>
             </ion-item>

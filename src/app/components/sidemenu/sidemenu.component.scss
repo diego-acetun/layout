@@ -3,8 +3,8 @@ ion-split-pane {
   --side-min-width: 340px;
 
   &.menu-only-icon {
-    --side-max-width: 74px;
-    --side-min-width: 74px;
+    --side-max-width: 110px;
+    --side-min-width: 110px;
     // ion-accordion-group {
     //   ion-accordion{
     //     ion-item
@@ -45,7 +45,7 @@ ion-split-pane {
 
 .active-item {
   color: red;
-  font-weight: 500;
+  font-weight: bold;
   --background: rgb(254 226 226);
 }
 
@@ -53,6 +53,9 @@ ion-menu {
   --background: rgb(254 226 226);
 }
 
+.imagen {
+  max-width: 100px !important;
+}
 // @media (max-width: 767px) {
 //   ion-split-pane {
 //     --background: black;

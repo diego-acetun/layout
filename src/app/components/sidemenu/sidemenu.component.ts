@@ -13,8 +13,8 @@ export class SidemenuComponent implements OnInit {
   currentPage: any;
   accordionValue: string = '';
   public appPages = [
-    { title: 'Semáforo cooporativo', url: '/semaforo', icon: 'briefcase' },
-    { title: 'Reportes O&M', url: '/reportes', icon: 'paper-plane' },
+    { title: 'Semáforo cooporativo', url: '/semaforo', icon: 'book-outline' },
+    { title: 'Reportes O&M', url: '/reportes', icon: 'briefcase-outline' },
     // { title: 'Empresas', url: '/business', icon: 'business' },
   ];
 
@@ -64,6 +64,7 @@ export class SidemenuComponent implements OnInit {
   }
 
   showAccordion(accordionValue: string) {
+    this.accordionValue = '';
     this.toggleMenuService.setMenu();
     this.accordionValue = accordionValue;
     console.log('click');

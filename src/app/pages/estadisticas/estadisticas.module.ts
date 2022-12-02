@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { EstadisticasPageRoutingModule } from './estadisticas-routing.module';
 
 import { EstadisticasPage } from './estadisticas.page';
+import { MenuButtonModule } from 'src/app/components/menu-button/menu-button.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EstadisticasPageRoutingModule
+    EstadisticasPageRoutingModule,
+    MenuButtonModule,
   ],
-  declarations: [EstadisticasPage]
+  declarations: [EstadisticasPage],
 })
 export class EstadisticasPageModule {}

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ControlVistasPageRoutingModule } from './control-vistas-routing.module';
 
 import { ControlVistasPage } from './control-vistas.page';
+import { MenuButtonModule } from 'src/app/components/menu-button/menu-button.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ControlVistasPageRoutingModule
+    ControlVistasPageRoutingModule,
+    MenuButtonModule
   ],
   declarations: [ControlVistasPage]
 })
