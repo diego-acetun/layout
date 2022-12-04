@@ -12,12 +12,14 @@
     <label class="mb-3 a" id="pEmail" for="emailInput">Correo electrónico</label>
   </div>
   <div class="flex flex-col-reverse">
-    <ion-input type="{{inputType}}" placeholder="Contraseña"
-      class="border-2 rounded-full w-full bg-gray-200 mb-10 border-transparent focus-within:border-red-500"
+    <div class="relative border-2 rounded-full w-full bg-gray-200 border-transparent focus-within:border-red-500 mb-10"
       id="passwordInput">
-      <ion-icon name="{{icon}}" class="absolute right-5 hover:cursor-pointer" (click)="changeInputType()">
+      <ion-input type="{{inputType}}" placeholder="Contraseña" class="w-11/12">
+      </ion-input>
+      <ion-icon name="{{icon}}" class="absolute right-2 top-1/4 z-20 hover:cursor-pointer text-xl"
+        (click)="changeInputType()">
       </ion-icon>
-    </ion-input>
+    </div>
     <label class="mb-3" id="pPassword">Contraseña</label>
   </div>
   <ion-button class="ion-margin-start" shape="round" expand="block" color="danger" class="mb-14" (click)="login()">

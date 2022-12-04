@@ -1,0 +1,100 @@
+<ion-split-pane when="xs" contentId="main-content" [class.menu-only-icon]="toggleMenuService.menuValue.collapse" class>
+  <ion-menu contentId="main-content" type="overlay" [class.hidden]="toggleMenuService.menuValue.collapse"
+    [class.md:block]="toggleMenuService.menuValue.collapse" class="">
+    <ion-content class="side">
+      <ion-list id="inbox-list" class="px-2">
+        <ion-title [class.w-20]="toggleMenuService.menuValue.collapse" class="ml-2">
+          <img src="assets/images/claro.png" alt="not available" class="mb-16 imagen mt-8 border-4"
+            [class.-translate-x-16]="toggleMenuService.menuValue.collapse">
+        </ion-title>
+
+        <div auto-hide="false" *ngFor="let p of appPages; let i = index" class="">
+          <div class="rounded-full items-center flex p-4 hover:bg-gray-300 hover:cursor-pointer item mb-2"
+            routerLinkActive="active-item" [routerLink]="p.url" (mouseenter)="hoverIcon(p.title)"
+            (mouseleave)="hoverIcon(p.title)">
+            <ion-icon class="icon text-xl" slot="start" [name]="p.icon">
+            </ion-icon>
+            <p class="ml-8 label">{{ p.title }}</p>
+
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-10">
+          <hr class="w-4/5 border border-gray-300">
+        </div>
+
+        <div (click)="showAccordion('first')" auto-hide="false" class="mt-10"
+          [class.hidden]="!toggleMenuService.menuValue.collapse" (mouseenter)="hoverIcon('Reportes administrativos')"
+          (mouseleave)="hoverIcon('Reportes administrativos')">
+          <div class="rounded-full items-center flex p-4 hover:bg-gray-300 hover:cursor-pointer item mb-2">
+            <ion-icon class="icon text-xl" slot="start" name="speedometer-outline"></ion-icon>
+          </div>
+        </div>
+        <div (click)="showAccordion('second')" auto-hide="false" class=""
+          [class.hidden]="!toggleMenuService.menuValue.collapse" (mouseenter)="hoverIcon('Gestion administrativa')"
+          (mouseleave)="hoverIcon('Gestion administrativa')">
+          <div class="rounded-full items-center flex p-4 hover:bg-gray-300 hover:cursor-pointer item mb-2">
+            <ion-icon class="icon text-xl" slot="start" name="settings-outline"></ion-icon>
+          </div>
+        </div>
+
+        <ion-accordion-group [value]="accordionValue" [class.hidden]="toggleMenuService.menuValue.collapse">
+          <ion-accordion ion value="first">
+            <ion-item slot="header" color="" routerDirection="root" lines="none" detail="false"
+              routerLinkActive="active-item" class="mt-10">
+              <ion-icon name="speedometer-outline" slot="start" routerLinkActive="active-item"
+                [routerLinkActiveOptions]="{exact:true}"></ion-icon>
+              <ion-label>Reportes administrativos</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content" *ngFor="let report of administrativeReports">
+              <ion-item lines="none" detail="false" routerLinkActive="active-item" [routerLink]="report.url"
+                class="rounded-full">
+                <ion-label>{{report.title}}</ion-label>
+              </ion-item>
+            </div>
+          </ion-accordion>
+
+          <ion-accordion ion value="second">
+            <ion-item slot="header" color="" routerDirection="root" lines="none" detail="false"
+              routerLinkActive="active-item" class="mt-5">
+              <ion-icon name="settings-outline" slot="start" routerLinkActive="active-item"
+                [routerLinkActiveOptions]="{exact:true}"></ion-icon>
+              <ion-label>Gestión administrativa</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content" *ngFor="let management of administrativeManagement">
+              <ion-item lines="none" detail="false" routerLinkActive="active-item" [routerLink]="management.url"
+                class="rounded-full">
+                <ion-label>{{management.title}}</ion-label>
+              </ion-item>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ng-content></ng-content>
+</ion-split-pane>
+<!-- [class.hidden]="!toggleMenuService.messageSemaforoValue.show" -->
+<div class="absolute top-36 left-28 bg-gray-700 text-white p-4 rounded-lg"
+  [class.hidden]="!showSectionNameService.messageSemaforoValue.show || !toggleMenuService.menuValue.collapse">
+  <p>Semáforo coorporativo</p>
+</div>
+
+<div class="absolute top-52 left-28 bg-gray-700 text-white p-4 rounded-lg"
+  [class.hidden]="!showSectionNameService.messageReportsValue.show || !toggleMenuService.menuValue.collapse">
+  <p>Reportes O&M</p>
+</div>
+
+<div class="absolute bottom-1/2 left-28 bg-gray-700 text-white p-4 rounded-lg"
+  [class.hidden]="!showSectionNameService.messageAdministrativeReportsValue.show || !toggleMenuService.menuValue.collapse">
+  <p>Reportes administrativos</p>
+</div>
+
+<div class="absolute bottom-[43%] left-28 bg-gray-700 text-white p-4 rounded-lg"
+  [class.hidden]="!showSectionNameService.messageManagementReportsValue.show || !toggleMenuService.menuValue.collapse">
+  <p>Reportes administrativos</p>
+</div>
+<!-- [class.hidden]="!toggleMenuService.messageReportsValue.show || !toggleMenuService.menuValue.collapse" -->
+<!-- https://readme.so/es/editor -->
