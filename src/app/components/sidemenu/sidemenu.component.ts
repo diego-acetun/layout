@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
-
+import { ToggleMenuService } from 'src/app/services/toggle-menu/toggle-menu.service';
+import { ShowSectionNameService } from 'src/app/services/show-section-name/show-section-name.service';
 @Component({
   selector: 'app-sidemenu',
   templateUrl: './sidemenu.component.html',
@@ -53,7 +53,8 @@ export class SidemenuComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public toggleMenuService: ToggleMenuService
+    public toggleMenuService: ToggleMenuService,
+    public showSectionNameService: ShowSectionNameService
   ) {}
 
   ngOnInit() {}
@@ -67,15 +68,19 @@ export class SidemenuComponent implements OnInit {
     this.accordionValue = '';
     this.toggleMenuService.setMenu();
     this.accordionValue = accordionValue;
-    console.log('click');
+    // console.log('click');
   }
 
   hoverIcon(option: string) {
     if (option === 'Semáforo cooporativo') {
-      this.toggleMenuService.setMessageSemaforo();
-      // console.log('exe', this.toggleMenuService.messageSemaforoValue.show);
+      this.showSectionNameService.setMessageSemaforo();
     } else if (option === 'Reportes O&M') {
-      this.toggleMenuService.setMessageReports();
+      this.showSectionNameService.setMessageReports();
+    } else if (option === 'Reportes administrativos') {
+      // console.log('jdejj');
+      this.showSectionNameService.setMessageAdministrativeReports();
+    } else if (option === 'Gestion administrativa') {
+      this.showSectionNameService.setMessageManagementReports();
     }
   }
 

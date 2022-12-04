@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
+import { ToggleMenuService } from 'src/app/services/toggle-menu/toggle-menu.service';
 
 @Component({
   selector: 'app-menu-button',
@@ -12,11 +12,6 @@ export class MenuButtonComponent implements OnInit {
 
   ngOnInit() {}
   openMenu() {
-    console.log('clcked');
     this.toggleMenuService.setMenu();
-  }
-
-  getToggleMenu() {
-    console.log('tt', this.toggleMenuService.menuValue);
   }
 }

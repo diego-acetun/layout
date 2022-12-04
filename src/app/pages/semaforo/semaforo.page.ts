@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
 
 @Component({
   selector: 'app-semaforo',
@@ -7,7 +6,7 @@ import { ToggleMenuService } from 'src/app/services/toggle-menu.service';
   styleUrls: ['./semaforo.page.scss'],
 })
 export class SemaforoPage implements OnInit {
-  constructor(public toggleMenuService: ToggleMenuService) {}
+  constructor() {}
 
   ngOnInit() {}
 

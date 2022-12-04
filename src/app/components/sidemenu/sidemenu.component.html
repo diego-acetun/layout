@@ -1,9 +1,8 @@
-<ion-split-pane when="xs" contentId="main-content" [class.menu-only-icon]="toggleMenuService.menuValue.collapse"
-  class="">
+<ion-split-pane when="xs" contentId="main-content" [class.menu-only-icon]="toggleMenuService.menuValue.collapse" class>
   <ion-menu contentId="main-content" type="overlay" [class.hidden]="toggleMenuService.menuValue.collapse"
     [class.md:block]="toggleMenuService.menuValue.collapse" class="">
     <ion-content class="side">
-      <ion-list id="inbox-list" class="px-3">
+      <ion-list id="inbox-list" class="px-2">
         <ion-title [class.w-20]="toggleMenuService.menuValue.collapse" class="ml-2">
           <img src="assets/images/claro.png" alt="not available" class="mb-16 imagen mt-8 border-4"
             [class.-translate-x-16]="toggleMenuService.menuValue.collapse">
@@ -11,7 +10,7 @@
 
         <div auto-hide="false" *ngFor="let p of appPages; let i = index" class="">
           <div class="rounded-full items-center flex p-4 hover:bg-gray-300 hover:cursor-pointer item mb-2"
-            routerLinkActive="active-item" [routerLink]="p.url" (mouseenter)="hoverIcon(p.title) "
+            routerLinkActive="active-item" [routerLink]="p.url" (mouseenter)="hoverIcon(p.title)"
             (mouseleave)="hoverIcon(p.title)">
             <ion-icon class="icon text-xl" slot="start" [name]="p.icon">
             </ion-icon>
@@ -25,13 +24,15 @@
         </div>
 
         <div (click)="showAccordion('first')" auto-hide="false" class="mt-10"
-          [class.hidden]="!toggleMenuService.menuValue.collapse">
+          [class.hidden]="!toggleMenuService.menuValue.collapse" (mouseenter)="hoverIcon('Reportes administrativos')"
+          (mouseleave)="hoverIcon('Reportes administrativos')">
           <div class="rounded-full items-center flex p-4 hover:bg-gray-300 hover:cursor-pointer item mb-2">
             <ion-icon class="icon text-xl" slot="start" name="speedometer-outline"></ion-icon>
           </div>
         </div>
         <div (click)="showAccordion('second')" auto-hide="false" class=""
-          [class.hidden]="!toggleMenuService.menuValue.collapse">
+          [class.hidden]="!toggleMenuService.menuValue.collapse" (mouseenter)="hoverIcon('Gestion administrativa')"
+          (mouseleave)="hoverIcon('Gestion administrativa')">
           <div class="rounded-full items-center flex p-4 hover:bg-gray-300 hover:cursor-pointer item mb-2">
             <ion-icon class="icon text-xl" slot="start" name="settings-outline"></ion-icon>
           </div>
@@ -77,11 +78,23 @@
 </ion-split-pane>
 <!-- [class.hidden]="!toggleMenuService.messageSemaforoValue.show" -->
 <div class="absolute top-36 left-28 bg-gray-700 text-white p-4 rounded-lg"
-  [class.hidden]="!toggleMenuService.messageSemaforoValue.show || !toggleMenuService.menuValue.collapse">
+  [class.hidden]="!showSectionNameService.messageSemaforoValue.show || !toggleMenuService.menuValue.collapse">
   <p>Semáforo coorporativo</p>
 </div>
 
 <div class="absolute top-52 left-28 bg-gray-700 text-white p-4 rounded-lg"
-  [class.hidden]="!toggleMenuService.messageReportsValue.show || !toggleMenuService.menuValue.collapse">
+  [class.hidden]="!showSectionNameService.messageReportsValue.show || !toggleMenuService.menuValue.collapse">
   <p>Reportes O&M</p>
 </div>
+
+<div class="absolute bottom-1/2 left-28 bg-gray-700 text-white p-4 rounded-lg"
+  [class.hidden]="!showSectionNameService.messageAdministrativeReportsValue.show || !toggleMenuService.menuValue.collapse">
+  <p>Reportes administrativos</p>
+</div>
+
+<div class="absolute bottom-[43%] left-28 bg-gray-700 text-white p-4 rounded-lg"
+  [class.hidden]="!showSectionNameService.messageManagementReportsValue.show || !toggleMenuService.menuValue.collapse">
+  <p>Reportes administrativos</p>
+</div>
+<!-- [class.hidden]="!toggleMenuService.messageReportsValue.show || !toggleMenuService.menuValue.collapse" -->
+<!-- https://readme.so/es/editor -->
